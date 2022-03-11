@@ -8,8 +8,8 @@ do
         if [ $serv_state == "active" ]; then
             echo "yozh active"
             process_count=$(grep '\-c [0-9]\+' $file_path | grep -o '[0-9]\+')
-            if [ $process_count -gt "600" ]; then
-                sed -i 's/-c [0-9]\+/-c 600/' $file_path
+            if [ $process_count -gt "1000" ]; then
+                sed -i 's/-c [0-9]\+/-c 1000/' $file_path
                 systemctl daemon-reload
                 systemctl restart yozh.service
             fi
